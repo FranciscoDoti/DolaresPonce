@@ -32,7 +32,7 @@ var buenBit= {
   console.log("BuenBit ARS precio Compra Total: " + buenBit.ARS.compra);
   console.log("BuenBit ARS precio Venta Total " + buenBit.ARS.venta);
 
-  expect(buenBit.ARS.compra).to.be.below(120);
+  expect(buenBit.ARS.compra).to.be.below(140);
 //  expect(buenBit.ARS.venta).to.be.greaterThan(124);
  });
 
