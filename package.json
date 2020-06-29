@@ -1,0 +1,17 @@
+{
+  "name": "dolaresponce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}
