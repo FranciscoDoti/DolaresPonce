@@ -34,12 +34,7 @@ request(options, async function (error, response) {
 
     switch (argv.tipoOperacion) {
         case 'COMPRA': {
-            try {
-                await expect(buenBit.ARS.compra, "El valor para la compra no está debajo del valor esperado").to.be.below(argv.montoBarrera);
-            } catch (error) {
-                console.log(error);
-            }
-           
+            expect(buenBit.ARS.compra, "El valor para la compra no está debajo del valor esperado").to.be.below(argv.montoBarrera);
             break;
         };
         case 'VENTA': {
