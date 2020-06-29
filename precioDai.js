@@ -1,5 +1,5 @@
 var request = require('request');
-const { assert, expect } = require('chai');
+const { assert, expect, AssertionError } = require('chai');
 const argv = require('minimist')(process.argv.slice(2));
 
 
@@ -31,19 +31,20 @@ request(options, async function (error, response) {
     await console.log("BuenBit ARS precio Compra Total: " + buenBit.ARS.compra);
     await console.log("BuenBit ARS precio Venta Total " + buenBit.ARS.venta);
 
-
     switch (argv.tipoOperacion) {
         case 'COMPRA': {
-            expect(buenBit.ARS.compra, "El valor para la compra no está debajo del valor esperado").to.be.below(argv.montoBarrera);
+            if (buenBit.ARS.compra > argv.montoBarrera){
+                throw new AssertionError("El valor para la compra no está debajo del valor esperado")
+            }
             break;
         };
         case 'VENTA': {
-            await expect(buenBit.ARS.venta,  "El valor para la venta no está por encima del valor esperado").to.be.greaterThan(argv.montoBarrera);
+             expect(buenBit.ARS.venta,  "El valor para la venta no está por encima del valor esperado").to.be.greaterThan(argv.montoBarrera);
             break;
         }
     }
-
     }
-)
+);
+
 
 
