@@ -3,7 +3,7 @@ const { assert, expect } = require('chai');
 
 var options = {
   'method': 'GET',
-  'url': 'https://criptoya.com/api/buenbit/dai/ars',
+  'url': 'https://criptoya.com/api/buenbit/dai/usd',
   'headers': {
     
   }
@@ -26,12 +26,10 @@ var buenBit= {
   if (error) throw new Error(error);
   console.log(response.body);
   var resp = JSON.parse(response.body);
-  buenBit.ARS.compra =parseFloat( resp.totalAsk);
-  buenBit.ARS.venta = parseFloat(resp.totalBid);
+  buenBit.USD.venta =parseFloat( resp.totalBid);
   
-  console.log("BuenBit ARS precio Compra Total: " + buenBit.ARS.compra);
-  console.log("BuenBit ARS precio Venta Total " + buenBit.ARS.venta);
+  console.log("BuenBit USD precio Venta Total: " + buenBit.USD.venta);
+  
 
-  expect(buenBit.ARS.compra).to.be.below(119);
-//  expect(buenBit.ARS.venta).to.be.greaterThan(124);
+  expect(buenBit.USD.venta).to.be.greaterThan(1.06);
  });
