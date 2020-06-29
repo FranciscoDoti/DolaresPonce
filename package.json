@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "precioCompraDAIARS" : "node precioDai.js --tipoOperacion='COMPRA' --montoBarrera=120",
+    "precioVentaDAIARS" : "node precioDai.js --tipoOperacion='VENTA' --montoBarrera=120"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "argv": "0.0.2",
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
     "express": "^4.17.1",
